@@ -107,17 +107,12 @@
         <form method="post">
           {% csrf_token %}
           <h3>Enter number to calculate :</h3>
-          <input
-            type="number"
-            name="number"
-            id="number"
-            placeholder="Enter a number"
-          />
-          <button type="submit">Calculate</button>
+          <input type="text" name="text" id="text" placeholder="Enter a text" />
+          <button type="submit">Generate</button>
         </form>
         <div class="result">
           <h2>Your result:</h2>
-          <h1>{{result}}</h1>
+          <p>{{result}}</p>
         </div>
       </div>
     </div>
