@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About us Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgb(160, 255, 255);
+        color: rgb(0, 132, 132);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .container {
+        display: flex;
+      }
+      .header > ul {
+        display: flex;
+        padding: 2rem 12px 0rem 12px;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+        background-color: rgb(0, 255, 255);
+      }
+      .header > ul > li {
+        list-style: none;
+        padding: 12px;
+      }
+      .header > ul > li > a {
+        color: rgb(0, 132, 132);
+        text-decoration: none;
+        font-size: 28px;
+        text-wrap: nowrap;
+        font-weight: bold;
+        padding: 4px;
+        transition: all 0.4s;
+      }
+      .header > ul > li > a:hover {
+        /* text-decoration: underline; */
+        background-color: rgb(0, 132, 132);
+        color: aqua;
+        border-radius: 8px;
+      }
+      .section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .section h1 {
+        font-size: 58px;
+        text-decoration: underline;
+      }
+      .section p {
+        margin: 1rem;
+        font-size: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <ul>
+          <li><a href="{% url 'Home Page' %}">Home</a></li>
+          <li><a href="{% url 'About us' %}">About Us</a></li>
+          <li><a href="{% url 'Contact us' %}">Contact Us</a></li>
+          <li><a href="{% url 'Generate Number' %}">Generate Number</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <h1>About Us</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure, iusto
+          aliquam vel impedit eveniet vero mollitia enim omnis officiis eaque
+          maiores similique. Amet, quas ipsa? Nesciunt sapiente tenetur esse
+          architecto suscipit similique at dolorem! Delectus temporibus non
+          minus dolor, sequi iste officia at totam. Voluptatum alias, unde
+          eligendi repudiandae recusandae architecto nihil sunt sequi illo
+          corrupti, beatae provident expedita excepturi optio molestias! A
+          cupiditate architecto sequi est aliquid voluptatibus quis quia
+          veritatis excepturi iste fuga maiores illum sapiente soluta
+          consequatur, eius qui aliquam velit voluptates incidunt doloribus illo
+          dolor! Numquam.
+        </p>
+        <h1>Our Products</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          labore delectus quae vel! Quia, reiciendis quasi culpa fuga laudantium
+          accusantium quisquam cum placeat doloribus corrupti, magni, asperiores
+          dolorem sed nihil. Vitae quidem repellendus explicabo unde? Quia, fuga
+          perspiciatis labore magnam deserunt recusandae quidem. Alias eaque
+          accusamus aliquam facilis quas velit eum tenetur animi eligendi cum,
+          harum explicabo necessitatibus dicta sapiente aliquid. Sit quasi
+          repudiandae nulla reprehenderit illum optio in placeat?
+        </p>
+        <h1>Our Company</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          labore delectus quae vel! Quia, reiciendis quasi culpa fuga laudantium
+          accusantium quisquam cum placeat doloribus corrupti, magni, asperiores
+          dolorem sed nihil. Vitae quidem repellendus explicabo unde? Quia, fuga
+          perspiciatis labore magnam deserunt recusandae quidem. Alias eaque
+          accusamus aliquam facilis quas velit eum tenetur animi eligendi cum,
+          harum explicabo necessitatibus dicta sapiente aliquid. Sit quasi
+          repudiandae nulla reprehenderit illum optio in placeat?
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
