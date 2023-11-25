@@ -1,27 +1,62 @@
+from django.views.decorators.cache import never_cache
+from django.http import HttpResponse
 from openai import OpenAI
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .models import Person
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, logout
 # Create your views here.
 
 
 # def welcome(request):
 #     return render(request, "index.html")
+@login_required
 def welcome(request):
     return render(request, "index.html")
 
 
+@login_required
 def aboutus(request):
     return render(request, "about.html")
 
 
+@login_required
 def contactus(request):
     return render(request, "contact.html")
+
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            # Change 'welcome' to the name of your welcome page URL
+            return redirect(welcome)
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'signup.html', {'form': form})
+
+
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            login(request, form.get_user())
+            # Change 'home' to the name of your home page URL
+            return redirect(welcome)
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
 
 
 def gpt_process(strVal):
 
     client = OpenAI(
-        api_key="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")
+        api_key="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")
 
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -33,6 +68,7 @@ def gpt_process(strVal):
     return str(completion.choices[0].message.content)
 
 
+@login_required
 def generateNum(request):
     result = None
     gptProcessed = None
@@ -44,3 +80,10 @@ def generateNum(request):
         myObj.save()
         # print(mynum)
     return render(request, "generatenum.html", {'result': result})
+
+
+@never_cache
+def logout_view(request):
+    logout(request)
+    # Your additional logic if any
+    return HttpResponse("Logged out successfully"), redirect('login')

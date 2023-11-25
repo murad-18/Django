@@ -87,6 +87,8 @@
         border-radius: 8px;
       }
       .result {
+        display: flex;
+        align-items: center;
       }
       .result > h1 {
         width: 15rem;
@@ -100,13 +102,14 @@
           <li><a href="{% url 'Home Page' %}">Home</a></li>
           <li><a href="{% url 'About us' %}">About Us</a></li>
           <li><a href="{% url 'Contact us' %}">Contact Us</a></li>
-          <li><a href="{% url 'Generate Number' %}">Generate Number</a></li>
+          <li><a href="{% url 'Generate Number' %}">Generate With GPT</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
         </ul>
       </div>
       <div class="userform">
         <form method="post">
           {% csrf_token %}
-          <h3>Enter number to calculate :</h3>
+          <h3>Enter prompt to generate text :</h3>
           <input type="text" name="text" id="text" placeholder="Enter a text" />
           <button type="submit">Generate</button>
         </form>
